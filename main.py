@@ -21,6 +21,7 @@ ENTRY = (
 def main() -> None:
     assert 1 <= len(ENTRY) <= 140, f"entry is {len(ENTRY)} chars"
     assert ENTRY.strip(), "entry must not be only whitespace"
+    assert "\n" not in ENTRY and "\r" not in ENTRY, "entry must be a single line"
 
     here = os.path.dirname(os.path.abspath(__file__))
     targets = [os.path.join(here, "output", "entry.txt")]
